@@ -1,14 +1,15 @@
 package com.week1;
 
 import java.util.Arrays;
+import java.util.Scanner;
 
 public class MergeSort {
 	
 	int[] arr, temp;
 
 	public String sortbyMergesort(String input) {
-		
 		StringBuilder result = new StringBuilder();
+		
 		try {
 			arr = Arrays.stream(input.split(" ")).mapToInt(Integer::parseInt).toArray();
 			temp = new int[arr.length];
@@ -18,8 +19,7 @@ public class MergeSort {
 				result.append(i + " ");
 		}
 		catch(NumberFormatException e) {
-			System.err.print("Error in Conversion : ");
-			e.printStackTrace();
+			System.err.print("Invalid input");
 		}
 		
 		return result.toString().trim();
@@ -59,5 +59,27 @@ public class MergeSort {
             k++;
             i++;
         }
+	}
+	
+	public static void main(String args[]) {
+		Scanner sc = null;
+		
+		try {
+			sc =  new Scanner(System.in);
+			System.out.println("Enter all the numbers to be sorted in one line :");
+			String input = sc.nextLine();
+			
+			MergeSort qs = new MergeSort();
+			String output = qs.sortbyMergesort(input);
+			
+			System.out.println("The sorted output is : " + output);
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
+		finally {
+			if(sc != null)
+				sc.close();
+		}
 	}
 }

@@ -1,13 +1,14 @@
 package com.week1;
 
 import java.util.Arrays;
+import java.util.Scanner;
 
 public class QuickSort {
 
 	public String sortbyQuicksort(String input) {
-		
 		int arr[];
 		StringBuilder result = new StringBuilder();
+		
 		try {
 			arr = Arrays.stream(input.split(" ")).mapToInt(Integer::parseInt).toArray();
 			
@@ -17,8 +18,7 @@ public class QuickSort {
 				result.append(i + " ");
 		}
 		catch(NumberFormatException e) {
-			System.err.print("Error in Conversion : ");
-			e.printStackTrace();
+			System.err.print("Invalid input");
 		}
 		
 		return result.toString().trim();
@@ -51,5 +51,27 @@ public class QuickSort {
         	quickSortAlgo(arrNew, i, high);
 		
 		return arrNew;
+	}
+	
+	public static void main(String args[]) {
+		Scanner sc = null;
+		
+		try {
+			sc =  new Scanner(System.in);
+			System.out.println("Enter all the numbers to be sorted in one line :");
+			String input = sc.nextLine();
+			
+			QuickSort qs = new QuickSort();
+			String output = qs.sortbyQuicksort(input);
+			
+			System.out.println("The sorted output is : " + output);
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
+		finally {
+			if(sc != null)
+				sc.close();
+		}
 	}
 }
