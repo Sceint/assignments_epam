@@ -6,6 +6,12 @@ public class MergeSort {
 	
 	int[] arr, temp;
 
+	
+	/*
+	 * Method to sort the given input of numbers by Merge sort
+	 * Parameters : 1 (single space separated numbers which are to be sorted)
+	 * Return type : String (single space separated sorted numbers using Merge sort)
+	 */
 	public String sortbyMergesort(String input) {
 		StringBuilder result = new StringBuilder("");
 		
@@ -17,13 +23,18 @@ public class MergeSort {
 			for(int i: arr)
 				result.append(i + " ");
 		}
-		catch(NumberFormatException e) {
+		catch(NumberFormatException e) { //Occurs when input is not specified correctly
 			System.err.print("Invalid input");
 		}
 		
 		return result.toString().trim();
 	}
 	
+	/*
+	 * Method to partition array in low, mid and high
+	 * Parameters : 2 (low[initially 0], high[initially number of input numbers - 1])
+	 * Return type : void
+	 */
 	private void partition(int low, int high) {
 		int mid;
 		
@@ -35,6 +46,11 @@ public class MergeSort {
 		}
 	}
 	
+	/*
+	 * Method which involves logic for Merge sort
+	 * Parameters : 3 (Integer input array, low, high)
+	 * Return type : Integer array (Output of the algorithm)
+	 */
 	private void mergeSortAlgo(int low, int mid, int high) {
 		int i = low;
 		int j = mid + 1;

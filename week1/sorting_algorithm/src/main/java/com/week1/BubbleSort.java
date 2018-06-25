@@ -4,6 +4,11 @@ import java.util.Arrays;
 
 public class BubbleSort {
 	
+	/*
+	 * Method to sort the given input of numbers by Bubble sort algorithm
+	 * Parameters : 1 (single space separated numbers which are to be sorted)
+	 * Return type : String (single space separated sorted numbers using Bubble sort)
+	 */
 	public String sortbyBubblesort(String input) {
 		StringBuilder result = new StringBuilder("");
 		
@@ -23,7 +28,7 @@ public class BubbleSort {
 			for(int i: arr)
 				result.append(i + " ");
 		}
-		catch(NumberFormatException e) {
+		catch(NumberFormatException e) { //Occurs when input is not specified correctly
 			System.err.print("Invalid input");
 		}
 		
